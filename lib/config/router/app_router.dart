@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:cinemapedia/presentations/screens/screens.dart';
 
 final appRouter = GoRouter(
-  initialExtra: '/',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
