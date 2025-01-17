@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class MovieMovieDB {
     final bool adult;
     final String backdropPath;
@@ -33,28 +31,8 @@ class MovieMovieDB {
         required this.voteCount,
     });
 
-    factory MovieMovieDB.fromJson(String str) => MovieMovieDB.fromMap(json.decode(str));
 
-    String toJson() => json.encode(toMap());
-
-    factory MovieMovieDB.fromMap(Map<String, dynamic> json) => MovieMovieDB(
-        adult: json["adult"] ?? false,
-        backdropPath: json["backdrop_path"] ?? '',
-        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
-        id: json["id"],
-        originalLanguage: json["original_language"],
-        originalTitle: json["original_title"],
-        overview: json["overview"] ?? '',
-        popularity: json["popularity"]?.toDouble(),
-        posterPath: json["poster_path"] ?? '',
-        releaseDate: DateTime.parse(json["release_date"]),
-        title: json["title"],
-        video: json["video"],
-        voteAverage: json["vote_average"]?.toDouble(),
-        voteCount: json["vote_count"],
-    );
-
-    Map<String, dynamic> toMap() => {
+    Map<String, dynamic> toJson() => {
         "adult": adult,
         "backdrop_path": backdropPath,
         "genre_ids": List<dynamic>.from(genreIds.map((x) => x)),
@@ -70,4 +48,21 @@ class MovieMovieDB {
         "vote_average": voteAverage,
         "vote_count": voteCount,
     };
+
+    factory MovieMovieDB.fromJson(Map<String, dynamic> json) => MovieMovieDB(
+        adult: json["adult"] ?? false,
+        backdropPath: json["backdrop_path"] ?? '',
+        genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
+        id: json["id"],
+        originalLanguage: json["original_language"],
+        originalTitle: json["original_title"],
+        overview: json["overview"] ?? '',
+        popularity: json["popularity"]?.toDouble(),
+        posterPath: json["poster_path"] ?? '',
+        releaseDate: DateTime.parse(json["release_date"]),
+        title: json["title"],
+        video: json["video"],
+        voteAverage: json["vote_average"]?.toDouble(),
+        voteCount: json["vote_count"],
+    );
 }
