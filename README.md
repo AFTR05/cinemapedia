@@ -6,3 +6,5 @@ Cinemapedia is an app that lets you explore the latest movie releases, discover 
 1. Copy the .env.template file and rename it to .env.
 2. Update the environment variables (The MovieDB).
 
+### Author
+Andrés Felipe Toro Rendón
